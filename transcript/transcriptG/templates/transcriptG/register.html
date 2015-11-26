@@ -28,35 +28,35 @@
                 <input type = "submit" value="SUBMIT">
             </div>
         </form>
-        <script>
-            function validate() {
-                // 
-                var e = document.getElementById("tou");
-                var u = e.options[e.selectedIndex].value;
-                $.ajax({
-                    url:"/transcriptG/validate/",
-                    type :"GET",
-                    data: {First_name:$("#fn").val(),
-                           Last_name:$("#ln").val(),
-                           EmailId:$("#email").val(),
-                           password:$("#p").val(),
-                           UserType:u,
-                    },
-                    success : function(json) {
-                        //alert("hiii");
-                        console.log(json);
-                        $("#fn").val('');
-                        $("#ln").val('');
-                        $("#email").val('');
-                        $("#p").val('');
-                        u;
-                    },
-                    error: function(xhr,errmsg,err) {
-                        $('#results').html("<div class = 'alert-box alert radius' data-alert> Oops! we have encounterd an error:" +errmsg+"<a href ='#' class ='close'> &times;</a></div>");
-                        console.log(xhr.status+": "+xhr.responseText);
-                    }
-                });
-            };
-        </script> 
+        // <script>
+        //     function validate() {
+        //         // 
+        //         var e = document.getElementById("tou");
+        //         var u = e.options[e.selectedIndex].value;
+        //         $.ajax({
+        //             url:"/transcriptG/validate/",
+        //             type :"GET",
+        //             data: {First_name:$("#fn").val(),
+        //                    Last_name:$("#ln").val(),
+        //                    EmailId:$("#email").val(),
+        //                    password:$("#p").val(),
+        //                    UserType:u,
+        //             },
+        //             success : function(json) {
+        //                 //alert("hiii");
+        //                 console.log(json);
+        //                 $("#fn").val('');
+        //                 $("#ln").val('');
+        //                 $("#email").val('');
+        //                 $("#p").val('');
+        //                 u;
+        //             },
+        //             error: function(xhr,errmsg,err) {
+        //                 $('#results').html("<div class = 'alert-box alert radius' data-alert> Oops! we have encounterd an error:" +errmsg+"<a href ='#' class ='close'> &times;</a></div>");
+        //                 console.log(xhr.status+": "+xhr.responseText);
+        //             }
+        //         });
+        //     };
+        // </script> 
     </body>
 </html>

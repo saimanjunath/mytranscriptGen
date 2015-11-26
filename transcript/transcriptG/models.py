@@ -1,5 +1,8 @@
 from django.db import models
 
+class Document(models.Model):
+    docfile = models.FileField(upload_to='documents/%Y/%m/%d')
+
 class Student(models.Model):
 	SID = models.CharField(max_length = 12)
 	firstname = models.CharField(max_length = 30)
@@ -10,6 +13,7 @@ class Student(models.Model):
 	yearofpassing = models.IntegerField(default = 0)
 	batchNo = models.IntegerField(default = 0)
 # Create your models here
+
 class user(models.Model):
 	Fname = models.CharField(max_length=20)
 	Lname = models.CharField(max_length=20)
