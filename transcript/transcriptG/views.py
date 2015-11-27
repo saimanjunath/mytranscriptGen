@@ -25,11 +25,11 @@ def validate(request):
     First_name = request.POST.get('First_name')
     Last_name = request.POST.get('Last_name')
     EmailId = request.POST.get('EmailId')
-    password = request.POST.get('password')
+    password = request.POST.get('password1')
     userType = request.POST.get('userType')
     response = {}
     if not user.objects.filter(Email=EmailId):
-        s = user(Fname=First_name,Lname = Last_name, Email = EmailId,password= password,userType=userType)
+        s = user(Fname=First_name,Lname = Last_name, Email = EmailId,password= password1,userType=userType)
         s.save()
         # alert ("registration successfull")
         return render_to_response(
