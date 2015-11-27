@@ -7,6 +7,8 @@ urlpatterns = [
     url(r'^validate/',views.validate,name='validate'),
     url(r'^register/$',views.register,name='register'),
     url(r'^homevalidate/',views.homevalidate,name='homevalidate'),
+    url(r'^courseList/$', views.courseList, name='courseList'),
+    url(r'^studentMarkslist/$', views.studentMarkslist, name='studentMarkslist'),
     url(r'^list/$', views.list, name='list'),
 
 ]
