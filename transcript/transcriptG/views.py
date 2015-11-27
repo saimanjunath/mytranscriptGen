@@ -49,7 +49,7 @@ def homevalidate(request):
     userid = request.GET.get('id')
     paswd = request.GET.get('pswd')
     response = {}
-    if not user.objects.filter(Email = userid,password=paswd):
+    if user.objects.filter(Email = userid,password=paswd):
         # response
         return render_to_response(
            'transcriptG/list.html',
@@ -63,6 +63,7 @@ def homevalidate(request):
            context_instance=RequestContext(request)
            )
     return HttpResponse(json_data, content_type = "application/json")
+
 def list(request):
     # Handle file upload
     if request.method == 'POST':
