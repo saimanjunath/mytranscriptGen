@@ -20,6 +20,19 @@ def index(request):
 def register(request):
 	return render(request,'transcriptG/register.html')
 
+def Doc(request):
+    return render(request,'transcriptG/DocUpload.html')
+
+def Marks(request):
+    return render(request,'transcriptG/StudentMarksUpload.html')
+
+def Course(request):
+    return render(request,'transcriptG/CoursesUpload.html')
+
+def Uploadd(request):
+    return render(request,'transcriptG/Upload.html')
+
+
 #validating the registration Fields
 def validate(request):
     First_name = request.POST.get('First_name')
@@ -97,7 +110,7 @@ def list(request):
     # # Render list page with the documents and the form
     # return HttpResponse('Fialure in uploading the student details')
     return render_to_response(
-        'transcriptG/list.html',
+        'transcriptG/DocUpload.html',
         {'documents': students, 'form': form},
         context_instance=RequestContext(request)
     )
@@ -135,7 +148,7 @@ def courseList(request):
     # # Render list page with the documents and the form
     # return HttpResponse('Fialure in uploading the student details')
     return render_to_response(
-        'transcriptG/list.html',
+        'transcriptG/CoursesUpload.html',
         {'documents': courses, 'form': form},
         context_instance=RequestContext(request)
     )
@@ -172,7 +185,7 @@ def studentMarkslist(request):
     # # Render list page with the documents and the form
     # return HttpResponse('Fialure in uploading the student details')
     return render_to_response(
-        'transcriptG/list.html',
+        'transcriptG/StudentMarksUpload.html',
         {'documents': studmarkslist, 'form': form},
         context_instance=RequestContext(request)
     )
