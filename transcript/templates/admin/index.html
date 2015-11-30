@@ -40,47 +40,34 @@
             {% endif %}
             </tr>
         {% endfor %}
-
-        
         </table>
         </div>
-
-
-        <div class="app-{{ app.app_label }} module">
+    {% endfor %}
+    <div class="app-{{ app.app_label }} module">
         <table>
         <caption>
-            <a href="{{ app.app_url }}" class="section" title="Bulk Uploads">Admin Custom Actions</a>
+            <a href="{{ app.app_url }}" class="section" title="ADMIN CUSTOM ACTIONS">ADMIN CUSTOM ACTIONS</a>
         </caption>
-        {% for model in app.models %}
             <tr class="model-{{ model.object_name|lower }}">
-            {% if model.admin_url %}
-                <th scope="row"><a href="/transcriptG/uploadd">Bulk Student Uploads</a></th>
-            {% else %}
-                <th scope="row">{{ model.name }}</th>
-            {% endif %}
-
-            {% if model.add_url %}
-                <td><a href="{{ model.add_url }}" class="addlink">Add</a></td>
-            {% else %}
-                <td>&nbsp;</td>
-            {% endif %}
-
-            {% if model.admin_url %}
-                <td><a href="{{ model.admin_url }}" class="changelink">Change</a></td>
-            {% else %}
-                <td>&nbsp;</td>
-            {% endif %}
+            <th scope="row"><a href="/transcriptG/list">Student Bulk UPLOAD</a></th>
+            <td><a href="{{ model.add_url }}" class="addlink">Add</a></td>
+            <td><a href="{{ model.add_url }}" class="changelink">change</a></td>
             </tr>
-        {% endfor %}
-
+            <tr class="model-{{ model.object_name|lower }}">
+            <th scope="row"><a href="/transcriptG/Course">Course Bulk UPLOAD</a></th>
+            <td><a href="{{ model.add_url }}" class="addlink">Add</a></td>
+            <td><a href="{{ model.add_url }}" class="changelink">change</a></td>
+            </tr>
+            <tr class="model-{{ model.object_name|lower }}">
+            <th scope="row"><a href="/transcriptG/Marks">StudentMarks Bulk UPLOAD</a></th>
+            <td><a href="{{ model.add_url }}" class="addlink">Add</a></td>
+            <td><a href="{{ model.add_url }}" class="changelink">change</a></td>
+            </tr>
         </table>
-        </div>
-
-        
-    {% endfor %}
 {% else %}
     <p>{% trans "You don't have permission to edit anything." %}</p>
 {% endif %}
+
 </div>
 {% endblock %}
 

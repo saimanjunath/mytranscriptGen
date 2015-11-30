@@ -16,6 +16,8 @@ class Student(models.Model):
 	yearofjoining = models.IntegerField(default = 0)
 	yearofpassing = models.IntegerField(default = 0)
 	batchNo = models.IntegerField(default = 0)
+	def __unicode__(self):              
+		return self.firstname+ " "+ self.lastname
 
 # Creating User Model
 
@@ -25,6 +27,8 @@ class user(models.Model):
 	Email = models.EmailField(max_length=50)
 	password= models.CharField(max_length=30)
 	userType = models.CharField(max_length=25)
+	def __unicode__(self):              
+		return self.Fname+" "+self.Lname
 
 # Creating Course Model
 
@@ -34,6 +38,8 @@ class Courses(models.Model):
 	year = models.IntegerField(default = 0)
 	term = models.IntegerField(default = 0)
 	credits = models.IntegerField(default = 0)
+	def __unicode__(self):              
+		return self.CName
 
 # Creating StudentMarks Model
 
@@ -42,3 +48,5 @@ class StudentMarks(models.Model):
 	CID = models.CharField(max_length=10)
 	grade = models.CharField(max_length=2)
 	description = models.CharField(default="null",max_length=50)
+	def __unicode__(self):              
+		return self.SID

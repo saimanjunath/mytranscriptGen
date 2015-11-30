@@ -30,16 +30,16 @@ def Course(request):
     return render(request,'transcriptG/CoursesUpload.html')
 
 def Uploadd(request):
-    return render(request,'transcriptG/Upload.html')
+    return render(request,'transcriptG/upload.html')
 
 
 #validating the registration Fields
 def validate(request):
-    First_name = request.POST.get('First_name')
-    Last_name = request.POST.get('Last_name')
-    EmailId = request.POST.get('EmailId')
-    password = request.POST.get('password1')
-    userType = request.POST.get('userType')
+    First_name = request.GET.get('First_name')
+    Last_name = request.GET.get('Last_name')
+    EmailId = request.GET.get('EmailId')
+    password = request.GET.get('password1')
+    userType = request.GET.get('userType')
     response = {}
     if not user.objects.filter(Email=EmailId):
         s = user(Fname=First_name,Lname = Last_name, Email = EmailId,password= password1,userType=userType)
