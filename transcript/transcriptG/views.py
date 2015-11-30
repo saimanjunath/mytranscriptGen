@@ -14,7 +14,7 @@ from .forms import DocumentForm,CourseForm,StudentForm
 
 # render to Login page
 def index(request):
-    return render(request, 'transcriptG/index1.html')
+    return render(request, 'transcriptG/index.html')
 
 # render to registration page
 def register(request):
@@ -33,15 +33,15 @@ def validate(request):
         s.save()
         # alert ("registration successfull")
         return render_to_response(
-               'transcriptG/index1.html',
+               'transcriptG/index.html',
                # {'form': form},
                context_instance=RequestContext(request)
            )
-    else:        
+    else:
         response['status'] = 'failure'
     json_data = json.dumps(response)
     return HttpResponse(json_data, content_type = "application/json")
-    
+
 def homevalidate(request):
     userid = request.POST.get('id')
     paswd = request.POST.get('pswd')
@@ -55,7 +55,7 @@ def homevalidate(request):
            )
     else:
         return render_to_response(
-           'transcriptG/index1.html',
+           'transcriptG/index.html',
             # {'form': form},
            context_instance=RequestContext(request)
            )
