@@ -1,8 +1,12 @@
 from django.db import models
 
+# Create your models here
+
+# Creating Document Model
 class Document(models.Model):
     docfile = models.FileField(upload_to='documents/%Y/%m/%d')
 
+# Creating Student Model
 class Student(models.Model):
 	SID = models.CharField(max_length = 12)
 	firstname = models.CharField(max_length = 30)
@@ -12,7 +16,8 @@ class Student(models.Model):
 	yearofjoining = models.IntegerField(default = 0)
 	yearofpassing = models.IntegerField(default = 0)
 	batchNo = models.IntegerField(default = 0)
-# Create your models here
+
+# Creating User Model
 
 class user(models.Model):
 	Fname = models.CharField(max_length=20)
@@ -20,3 +25,21 @@ class user(models.Model):
 	Email = models.EmailField(max_length=50)
 	password= models.CharField(max_length=30)
 	userType = models.CharField(max_length=25)
+	# hello = models.CharField(max_length=10)
+
+# Creating Course Model
+
+class Courses(models.Model):
+	CID = models.CharField(max_length = 10)
+	CName = models.CharField(max_length = 15)
+	year = models.IntegerField(default = 0)
+	term = models.IntegerField(default = 0)
+	credits = models.IntegerField(default = 0)
+
+# Creating StudentMarks Model
+
+class StudentMarks(models.Model):
+	SID = models.CharField(max_length=12)
+	CID = models.CharField(max_length=10)
+	grade = models.CharField(max_length=2)
+	description = models.CharField(default="null",max_length=50)
