@@ -27,8 +27,12 @@ class user(models.Model):
 	Email = models.EmailField(max_length=50)
 	password= models.CharField(max_length=30)
 	userType = models.CharField(max_length=25)
+<<<<<<< HEAD
 	def __unicode__(self):              
 		return self.Fname+" "+self.Lname
+=======
+	# hello = models.CharField(max_length=10)
+>>>>>>> 9963b4bae4a05c96c5ed4c025865ee8fe754a80d
 
 # Creating Course Model
 

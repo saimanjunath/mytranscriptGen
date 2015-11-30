@@ -29,7 +29,11 @@ def Marks(request):
 def Course(request):
     return render(request,'transcriptG/CoursesUpload.html')
 
+<<<<<<< HEAD
 def Uploadd(request):
+=======
+def upload(request):
+>>>>>>> 9963b4bae4a05c96c5ed4c025865ee8fe754a80d
     return render(request,'transcriptG/upload.html')
 
 
@@ -42,7 +46,7 @@ def validate(request):
     userType = request.GET.get('userType')
     response = {}
     if not user.objects.filter(Email=EmailId):
-        s = user(Fname=First_name,Lname = Last_name, Email = EmailId,password= password1,userType=userType)
+        s = user(Fname=First_name,Lname = Last_name, Email = EmailId,password= password,userType=userType)
         s.save()
         # alert ("registration successfull")
         return render_to_response(
