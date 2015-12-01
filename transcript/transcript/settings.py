@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'transcript.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'krishna',
+        'NAME': 'krishnakumar',
         'USER': 'root',
         'PASSWORD': 'tiger',
         'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on

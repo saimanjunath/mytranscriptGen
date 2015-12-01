@@ -6,7 +6,7 @@
     <body  background = "/static/transcriptG/images/background1.jpg">
         <div align = "center"><img src = "/static/transcriptG/images/msitlogo1.jpg" height = "15%" width = "30%"></div>
         <h1 align = "center">Registration form</h1>
-        <form action="/transcriptG/validate/" method="POST">
+        <form action="/transcriptG/validate/" method="GET">
             <div align = "center">
                 {% csrf_token %}
                 First name: <input type = "text" id = "fn" name="First_name"><br>

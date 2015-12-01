@@ -38,7 +38,7 @@ def validate(request):
     First_name = request.GET.get('First_name')
     Last_name = request.GET.get('Last_name')
     EmailId = request.GET.get('EmailId')
-    password = request.GET.get('password1')
+    password1 = request.GET.get('password1')
     userType = request.GET.get('userType')
     response = {}
     if not user.objects.filter(Email=EmailId):
@@ -59,10 +59,10 @@ def homevalidate(request):
     userid = request.POST.get('id')
     paswd = request.POST.get('pswd')
     response = {}
-    if user.objects.filter(Email = userid,password=paswd):
+    if not user.objects.filter(Email = userid,password=paswd):
         # response
         return render_to_response(
-           'transcriptG/list.html',
+           '/admin',
            # {'form': form},
            context_instance=RequestContext(request)
            )
