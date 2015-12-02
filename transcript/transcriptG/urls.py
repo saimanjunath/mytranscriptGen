@@ -18,5 +18,7 @@ urlpatterns = [
     # url(r'^IndividualTG/$', views.IndividualTG, name='IndividualTG'),
     url(r'^calculateGPA/$', views.calculateGPA, name='calculateGPA'),
     # url(r'^admin2/$', views.admin2, name='admin2'),
+    # url(r'^some_view/$', views.some_view, name='some_view'),
+    url(r'^pdf_gen/$',views.pdf_gen,name = 'pdf_gen'),
 ]
 
