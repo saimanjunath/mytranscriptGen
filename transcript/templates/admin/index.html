@@ -64,11 +64,28 @@
             <td><a href="{{ model.add_url }}" class="changelink">change</a></td>
             </tr>
         </table>
-{% else %}
-    <p>{% trans "You don't have permission to edit anything." %}</p>
-{% endif %}
 
-</div>
+        <table>
+        <caption>
+            <a href="{{ app.app_url }}" class="section" title="TRANSCRIPT GENERATION">TRANSCRIPT GENERATION</a>
+        </caption>
+            <tr class="model-{{ model.object_name|lower }}">
+            <th scope="row"><a href="/transcriptG/BulkTG">Bulk Transcript Generations</a></th>
+            <td><a href="{{ model.add_url }}" class="addlink">Add</a></td>
+            <td><a href="{{ model.add_url }}" class="changelink">change</a></td>
+            </tr>
+
+            <tr class="model-{{ model.object_name|lower }}">
+            <th scope="row"><a href="/transcriptG/IndividualTG">Individual Transcript Generation</a></th>
+            <td><a href="{{ model.add_url }}" class="addlink">Add</a></td>
+            <td><a href="{{ model.add_url }}" class="changelink">change</a></td>
+            </tr>
+        </table>
+    {% else %}
+        <p>{% trans "You don't have permission to edit anything." %}</p>
+    {% endif %}
+
+    </div>
 {% endblock %}
 
 {% block sidebar %}

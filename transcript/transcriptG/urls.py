@@ -14,5 +14,9 @@ urlpatterns = [
     url(r'^Marks/$', views.Marks, name='Marks'),
     url(r'^Course/$', views.Course, name='Course'),
     url(r'^Uploadd/$', views.Uploadd, name='Uploadd'),
+    url(r'^BulkTG/$', views.BulkTG, name='BulkTG'),
+    # url(r'^IndividualTG/$', views.IndividualTG, name='IndividualTG'),
+    url(r'^calculateGPA/$', views.calculateGPA, name='calculateGPA'),
+    # url(r'^admin2/$', views.admin2, name='admin2'),
 ]
 

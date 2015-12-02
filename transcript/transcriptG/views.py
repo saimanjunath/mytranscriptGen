@@ -59,7 +59,7 @@ def homevalidate(request):
     userid = request.POST.get('id')
     paswd = request.POST.get('pswd')
     response = {}
-    if not user.objects.filter(Email = userid,password=paswd):
+    if not user.objects.filter(Email = userid,password=paswd,user='admin'):
         # response
         return render_to_response(
            '/admin',
@@ -189,3 +189,39 @@ def studentMarkslist(request):
         {'documents': studmarkslist, 'form': form},
         context_instance=RequestContext(request)
     )
+
+def BulkTG(request):
+    
+    return render(request,'transcriptG/selectYear.html')
+
+# def admin2(request):
+#     return render_to_response('.\transcript\templates\admin\index.html',)
+
+def calculateGPA(request):
+    year = request.GET.get('year')
+    stud_details = Student.objects.filter(yearofjoining=year)
+    array = []
+    gradeDictionary={'EX':10.0,'A+':9.5,'A':9.0,'B+':8.5,'B':8.0,'C':7.0}
+    for i in stud_details:
+        grade_details= StudentMarks.objects.filter(SID = i.SID)
+        GPA = 0
+        CGPA = 0
+        sum_of_credits = 0
+        for j in grade_details:
+            if j.grade == 'F':
+                sum_of_credits = 0
+                break
+            grade = gradeDictionary[j.grade]
+            credits_details = Courses.objects.filter(CID=j.CID)
+            credits = credits_details[0].credits
+            sum_of_credits = sum_of_credits + credits
+            GPA = GPA + (grade*credits)
+
+        if not sum_of_credits == 0:
+            CGPA = GPA/sum_of_credits
+            array.append(CGPA)
+    template = loader.get_template('transcriptG/retrieval.html')
+    context = RequestContext(request, {
+    'details': array
+    })
+    return HttpResponse(template.render(context))

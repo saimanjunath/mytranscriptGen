@@ -38,7 +38,8 @@ class Courses(models.Model):
 	year = models.IntegerField(default = 0)
 	term = models.IntegerField(default = 0)
 	credits = models.IntegerField(default = 0)
-	def __unicode__(self):              
+	Courseyear = models.IntegerField(default = 0)
+	def __unicode__(self):             
 		return self.CName
 
 # Creating StudentMarks Model
