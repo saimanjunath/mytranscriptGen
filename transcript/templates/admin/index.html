@@ -54,12 +54,12 @@
             <td><a href="{{ model.add_url }}" class="changelink">change</a></td>
             </tr>
             <tr class="model-{{ model.object_name|lower }}">
-            <th scope="row"><a href="/transcriptG/Course">Course Bulk UPLOAD</a></th>
+            <th scope="row"><a href="/transcriptG/courseList">Course Bulk UPLOAD</a></th>
             <td><a href="{{ model.add_url }}" class="addlink">Add</a></td>
             <td><a href="{{ model.add_url }}" class="changelink">change</a></td>
             </tr>
             <tr class="model-{{ model.object_name|lower }}">
-            <th scope="row"><a href="/transcriptG/Marks">StudentMarks Bulk UPLOAD</a></th>
+            <th scope="row"><a href="/transcriptG/studentMarkslist">StudentMarks Bulk UPLOAD</a></th>
             <td><a href="{{ model.add_url }}" class="addlink">Add</a></td>
             <td><a href="{{ model.add_url }}" class="changelink">change</a></td>
             </tr>
@@ -70,13 +70,7 @@
             <a href="{{ app.app_url }}" class="section" title="TRANSCRIPT GENERATION">TRANSCRIPT GENERATION</a>
         </caption>
             <tr class="model-{{ model.object_name|lower }}">
-            <th scope="row"><a href="/transcriptG/BulkTG">Bulk Transcript Generations</a></th>
-            <td><a href="{{ model.add_url }}" class="addlink">Add</a></td>
-            <td><a href="{{ model.add_url }}" class="changelink">change</a></td>
-            </tr>
-
-            <tr class="model-{{ model.object_name|lower }}">
-            <th scope="row"><a href="/transcriptG/IndividualTG">Individual Transcript Generation</a></th>
+            <th scope="row"><a href="/transcriptG/TranscriptGen">Generate Transcript</a></th>
             <td><a href="{{ model.add_url }}" class="addlink">Add</a></td>
             <td><a href="{{ model.add_url }}" class="changelink">change</a></td>
             </tr>

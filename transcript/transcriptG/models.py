@@ -9,9 +9,9 @@ class Document(models.Model):
 # Creating Student Model
 class Student(models.Model):
 	SID = models.CharField(max_length = 12)
-	firstname = models.CharField(max_length = 30)
-	lastname = models.CharField(max_length = 30)
-	emailid = models.EmailField(max_length = 400)
+	firstname = models.CharField(max_length = 50)
+	lastname = models.CharField(max_length = 50)
+	emailid = models.EmailField(max_length = 50)
 	phnum = models.CharField(max_length = 15)
 	yearofjoining = models.IntegerField(default = 0)
 	yearofpassing = models.IntegerField(default = 0)
@@ -34,7 +34,7 @@ class user(models.Model):
 
 class Courses(models.Model):
 	CID = models.CharField(max_length = 10)
-	CName = models.CharField(max_length = 15)
+	CName = models.CharField(max_length = 50)
 	year = models.IntegerField(default = 0)
 	term = models.IntegerField(default = 0)
 	credits = models.IntegerField(default = 0)
