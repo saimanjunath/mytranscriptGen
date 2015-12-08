@@ -50,31 +50,21 @@ def validate(request):
         s = user(Fname=First_name,Lname = Last_name, Email = EmailId,password= password1,userType=userType)
         s.save()
         return render_to_response(
-               '/admin',
-               context_instance=RequestContext(request)
-           )
+               'transcriptG/index.html',
+               context_instance=RequestContext(request))
     else:
-        response['status'] = 'failure'
-    json_data = json.dumps(response)
-    return HttpResponse(json_data, content_type = "application/json")
+        return HttpResponse("Failed to resister")
 
 def homevalidate(request):
-    userid = request.POST.get('id')
-    paswd = request.POST.get('pswd')
-    response = {}
-    if not user.objects.filter(Email = userid,password=paswd,user='admin'):
+    userid = request.GET.get('email')
+    paswd = request.GET.get('password')
+    if user.objects.filter(Email = userid,password=paswd,userType='admin'):
         # response
-        return render_to_response(
-           '/admin',
-           # {'form': form},
-           context_instance=RequestContext(request)
-           )
+        return HttpResponse('true')
+    elif user.objects.filter(Email = userid,password=paswd,userType='user'):
+        return HttpResponse('false')
     else:
-        return render_to_response(
-           'transcriptG/index.html',
-           context_instance=RequestContext(request)
-           )
-
+        return HttpResponse('none')
 # validating and storing the data of uploaded student details csv file
 def list(request):
     # Handle file upload
